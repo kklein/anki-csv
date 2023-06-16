@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "anki-csv"
+version = "0.0.1"
+authors = [
+  { name="kklein"}
+]
+description = "A package to validate csv files with respect to Anki's format."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/kklein/anki-csv"
+"Bug Tracker" = "https://github.com/kklein/anki-csv/issues"

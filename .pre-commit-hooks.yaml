@@ -1,0 +1,6 @@
+- id: anki-csv
+  name: Anki csv validification
+  description: This hook checks whether csv files comply with Anki's import format.
+  entry: clevercsv standardize
+  language: python
+  types: [csv]
