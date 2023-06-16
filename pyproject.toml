@@ -20,3 +20,6 @@ classifiers = [
 [project.urls]
 "Homepage" = "https://github.com/kklein/anki-csv"
 "Bug Tracker" = "https://github.com/kklein/anki-csv/issues"
+
+[project.scripts]
+ankicsv = "ankicsv:validate"
