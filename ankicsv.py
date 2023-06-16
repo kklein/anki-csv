@@ -46,8 +46,9 @@ def cli():
 
 @cli.command("validate")
 @click.argument(
-    "csv_path", type=click.Path(exists=True, file_okay=True, dir_okay=False)
+    "csv_paths", type=click.Path(exists=True, file_okay=True, dir_okay=False), nargs=-1
 )
-def validate(csv_path):
-    path = Path(csv_path)
-    validate_file(path)
+def validate(csv_paths):
+    for csv_path in csv_paths:
+        path = Path(csv_path)
+        validate_file(path)
