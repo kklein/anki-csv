@@ -7,17 +7,19 @@ import click
 def validate_lines(lines: list):
     keys = set()
     for line in lines:
-        print(line)
         if not isinstance(line, list):
             raise ValueError("Parsing of csv file failed.")
         length = len(line)
         if length == 0:
             continue
         elif length == 1:
-            raise ValueError(
-                "A line had only 1 values; it was expected to contain two values. \n"
-                f"{str(line)}"
-            )
+            element = line[0]
+            # We tolerate comments indicated by a hash.
+            if not hasattr(element, "__str__") or not str(element).startswith("#"):
+                raise ValueError(
+                    "A line had only 1 values; it was expected to contain two values. \n"
+                    f"{str(line)}"
+                )
         elif length == 2:
             new_key = line[0].strip()
             if new_key in keys:

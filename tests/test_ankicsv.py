@@ -13,6 +13,7 @@ from ankicsv import validate_file
         ("superfluous_comma.csv", False),
         ("multiline.csv", True),
         ("escaped_comma.csv", True),
+        ("comment.csv", True),
     ],
 )
 def test_validate(file, expected_success):
