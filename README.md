@@ -1,5 +1,4 @@
-`anki-csv` is a tool to validate whether csv files comply with Anki's
-basic flashcard format.
+`anki-csv` is a tool to validate whether csv files comply with [Anki](https://apps.ankiweb.net/)'s basic flashcard format.
 
 ## Usage as pre-commit hook
 
