@@ -7,14 +7,27 @@ import click
 def validate_lines(lines: list):
     keys = set()
     for line in lines:
+        print(line)
         if not isinstance(line, list):
-            raise ValueError()
-        if len(line) != 2:
-            raise ValueError(f"A line had more than 2 values: \n {str(line)}")
-        new_key = line[0].strip()
-        if new_key in keys:
-            raise ValueError(f"Key {new_key} occurs several times.")
-        keys |= {new_key}
+            raise ValueError("Parsing of csv file failed.")
+        length = len(line)
+        if length == 0:
+            continue
+        elif length == 1:
+            raise ValueError(
+                "A line had only 1 values; it was expected to contain two values. \n"
+                f"{str(line)}"
+            )
+        elif length == 2:
+            new_key = line[0].strip()
+            if new_key in keys:
+                raise ValueError(f"Key {new_key} occurs several times.")
+            keys |= {new_key}
+        else:
+            raise ValueError(
+                f"A line had {length} values; it was expected to contain only two values.\n "
+                f"{str(line)}"
+            )
 
 
 def validate_file(file: Path) -> None:
