@@ -1,16 +1,7 @@
 import csv
-import re
 from pathlib import Path
 
 import click
-
-
-def validate_string(body: str) -> None:
-    pattern_line_non_escaped = "[^,]+[,]{1}[^,]+"
-    pattern_line_escaped = r"[^,]+[,]{1}\s*[\"]{1}[^\"]+[\"]{1}\s*"
-    pattern_line = f"({pattern_line_non_escaped}|{pattern_line_escaped})"
-    pattern = re.compile(f"^({pattern_line}(\n)+)*{pattern_line}\n*$")
-    return pattern.match(body)
 
 
 def validate_lines(lines: list):
@@ -27,7 +18,7 @@ def validate_lines(lines: list):
 
 
 def validate_file(file: Path) -> None:
-    with open(file, "r") as fh:
+    with open(file) as fh:
         print(f"Validating {file}.")
         reader = csv.reader(
             fh,
