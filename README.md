@@ -73,7 +73,7 @@ Recommended initial setup looks as follows:
 $ git clone git@github.com:kklein/anki-csv.git
 $ cd anki-csv
 $ mamba env create -f environment.yaml
-$ mamba activate anki-csv
+$ mamba activate ankicsv
 $ pre-commit install
 ```
 
@@ -96,7 +96,7 @@ Follow the steps from the Development section above.
 Then, run
 
 ```console
-$ anki-csv /users/kevin/file1.csv /users/kevin/file2.csv /users/kevin/file3.csv
+$ ankicsv /users/kevin/file1.csv /users/kevin/file2.csv /users/kevin/file3.csv
 ```
 
 
