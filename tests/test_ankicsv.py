@@ -11,6 +11,7 @@ from ankicsv import validate_file
         ("missing_value.csv", False),
         ("duplicate_key.csv", False),
         ("superfluous_comma.csv", False),
+        ("starting_emptyspace.csv", False),
         ("multiline.csv", True),
         ("escaped_comma.csv", True),
         ("comment.csv", True),

@@ -24,6 +24,10 @@ def validate_lines(lines: list):
             new_key = line[0].strip()
             if new_key in keys:
                 raise ValueError(f"Key {new_key} occurs several times.")
+            if line[1].startswith(" "):
+                raise ValueError(
+                    "A response cannot start with an empty space." f"{str(line[1])}"
+                )
             keys |= {new_key}
         else:
             raise ValueError(
@@ -40,7 +44,7 @@ def validate_file(file: Path) -> None:
             quotechar='"',
             delimiter=",",
             quoting=csv.QUOTE_ALL,
-            skipinitialspace=True,
+            skipinitialspace=False,
         )
         validate_lines(list(reader))
 
