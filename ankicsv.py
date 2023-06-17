@@ -17,7 +17,7 @@ def validate_lines(lines: list):
             # We tolerate comments indicated by a hash.
             if not hasattr(element, "__str__") or not str(element).startswith("#"):
                 raise ValueError(
-                    "A line had only 1 values; it was expected to contain two values. \n"
+                    "A line had only 1 values; it was expected to contain two values.\n"
                     f"{str(line)}"
                 )
         elif length == 2:
@@ -31,7 +31,8 @@ def validate_lines(lines: list):
             keys |= {new_key}
         else:
             raise ValueError(
-                f"A line had {length} values; it was expected to contain only two values.\n "
+                f"A line had {length} values "
+                "it was expected to contain only two values.\n"
                 f"{str(line)}"
             )
 
