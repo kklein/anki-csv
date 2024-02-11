@@ -26,3 +26,6 @@ dependencies = [
 
 [project.scripts]
 ankicsv = "ankicsv:validate"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ankicsv.py"]
